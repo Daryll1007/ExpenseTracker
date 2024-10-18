@@ -13,20 +13,35 @@ namespace ExpenseTracker.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddAuthentication("Bearer")
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options =>
                 {
                     options.TokenValidationParameters = new TokenValidationParameters
                     {
-                        // Set JWT parameters, e.g., issuer, audience, signing key
+                        ValidateIssuer = true,
+                        ValidateAudience = true,
+                        ValidateLifetime = true,
+                        ValidateIssuerSigningKey = true,
+                        ValidIssuer = "yourIssuer",
+                        ValidAudience = "yourAudience",
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("yourSecretKey"))
                     };
                 });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+
             app.UseRouting();
-            app.UseAuthentication(); // Ensure authentication middleware is applied
+
+            // authentication middleware
+            app.UseAuthentication();
+
+            // authorization middleware
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
@@ -34,6 +49,5 @@ namespace ExpenseTracker.API
                 endpoints.MapControllers();
             });
         }
-
     }
 }

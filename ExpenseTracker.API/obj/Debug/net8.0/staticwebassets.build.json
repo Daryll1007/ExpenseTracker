@@ -1,0 +1,23 @@
+{
+  "Version": 1,
+  "Hash": "ATocBTwjnkrG4uHsg3UYTJPUUV9rt+Hl73QHImDcgDA=",
+  "Source": "ExpenseTracker.API",
+  "BasePath": "_content/ExpenseTracker.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [
+    {
+      "Identity": "C:\\Users\\Lenovo\\source\\repos\\ExpenseTracker.API\\ExpenseTracker.Library\\ExpenseTracker.Library.csproj",
+      "Version": 2,
+      "Source": "ExpenseTracker.Library",
+      "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
+      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework",
+      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
+      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework"
+    }
+  ],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

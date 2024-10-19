@@ -3,7 +3,7 @@ using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
 using Xunit;
-using ExpenseTracker.Library.Models; // Ensure you include the correct namespace for your models
+using ExpenseTracker.Library.Models; 
 using System.Collections.Generic;
 
 namespace ExpenseTracker.Tests
@@ -34,14 +34,14 @@ namespace ExpenseTracker.Tests
             var response = await _client.GetAsync("/api/expenses");
 
             // Assert
-            response.EnsureSuccessStatusCode(); // Ensure we got a success status code
+            response.EnsureSuccessStatusCode(); 
 
             // Deserialize the response content
             var expenses = await response.Content.ReadFromJsonAsync<List<Expense>>();
 
             // Check that the expenses list is not null and has expected items
             Assert.NotNull(expenses);
-            Assert.NotEmpty(expenses); // This assumes that you expect at least one expense in your test data
+            Assert.NotEmpty(expenses); 
         }
     }
 }
